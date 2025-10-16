@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Emergent Visual Grounding in Large Multimodal Models Without Grounding Supervision">
+  <meta name="keywords" content="Visual Grounding, Large Multimodal Models, Emergent Abilities">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Emergent Visual Grounding in Large Multimodal Models Without Grounding Supervision</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="icon" href="./static/images/favicon.png">
+
+  <style>
+    body {
+      font-family: 'Noto Sans', sans-serif;
+      color: #333;
+      background-color: #f9f9f9;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
+
+    .publication-title {
+      font-family: 'Google Sans', sans-serif;
+      font-weight: 700;
+      color: #2c3e50;
+    }
+
+    .publication-authors .author-block a {
+      color: #2980b9;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .publication-authors .author-block a:hover {
+      color: #3498db;
+    }
+    
+    .teaser {
+      background-color: #ffffff;
+      padding: 2rem 0;
+      border-top: 1px solid #e0e0e0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .teaser .title {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #34495e;
+    }
+
+    .button.is-dark {
+      background-color: #34495e;
+      transition: background-color 0.3s ease;
+    }
+
+    .button.is-dark:hover {
+      background-color: #4a6278;
+    }
+
+    .section {
+      padding: 4rem 1.5rem;
+    }
+
+    .content-block {
+      padding-bottom: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .title.is-3 {
+      color: #34495e;
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .content img {
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .table {
+      width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    
+    .table thead {
+      background-color: #eaf1f8;
+    }
+
+    .table th, .table td {
+      vertical-align: middle;
+      text-align: center;
+    }
+
+    .table tbody tr:nth-child(even) {
+      background-color: #f7f9fb;
+    }
+
+    pre {
+      background-color: #2c3e50;
+      color: #ecf0f1;
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+
+    .footer {
+      background-color: #ecf0f1;
+      padding: 2rem 0;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Emergent Visual Grounding in<br>Large Multimodal Models<br><em>Without</em> Grounding Supervision</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="https://shengcao-cao.github.io/">Shengcao Cao</a>,</span>
+            <span class="author-block"><a href="https://lgui.web.illinois.edu/">Liang-Yan Gui</a>,</span>
+            <span class="author-block"><a href="https://yxw.web.illinois.edu/">Yu-Xiong Wang</a></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">University of Illinois Urbana-Champaign</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2410.08209" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/Shengcao-Cao/GroundLMM"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="teaser">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+          <div class="column is-full-width has-text-centered">
+              <img src="./static/images/teaser.png" alt="Teaser Image" width="100%">
+              <h2 class="title is-4">Our approach unlocks and enhances the <em>grounding ability implicitly learned by LMMs without explicit grounding supervision</em>, leading to visually grounded responses while preserving the general vision-language conversation ability.</h2>
+          </div>
+      </div>
+    </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Current large multimodal models (LMMs) face challenges in visual grounding, which requires the model to relate language components to visual entities. Contrary to common practice that fine-tunes LMMs with additional grounding supervision, we find that grounding ability can be implicitly learned by LMMs to some extent without explicit grounding supervision that sacrifices general conversation ability. To unlock this grounding ability, we first introduce a training-free strategy "Attend-and-Segment," which analyzes the attention within an off-the-shelf LMM to provide a point prompt to a segmentation model (e.g., SAM) and perform pixel-level segmentation. This strategy instantly enables visual grounding for existing LMMs while keeping their original conversation ability intact. Second, motivated by vision-language alignment and localized features embedded in diffusion models, we propose DiffLMM—a LLaVA-like LMM that utilizes a diffusion-based visual encoder instead of the standard CLIP visual encoder. This design enhances the implicit grounding ability without changing the training data. Without being constrained by the biases and limited scale of grounding-specific supervision data, our approach enables strong visual grounding while preserving general conversation capabilities. We achieve competitive performance on both grounding-specific and general visual question answering benchmarks, compared with grounding LMMs and generalist LMMs, respectively. Notably, we achieve a 46.4 grounding mask recall on grounded conversation generation, outperforming the extensively supervised model GLaMM.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-centered content-block">
+      <div class="column is-full-width">
+        <h2 class="title is-3">🚀 Attend-and-Segment: Unlocking Implicit Grounding</h2>
+        <div class="content has-text-centered">
+          <img src="./static/images/attention.png" alt="Attend-and-Segment">
+          <p>
+            We introduce <strong>Attend-and-Segment</strong>, a training-free strategy to unlock the implicit grounding ability of LMMs. By analyzing the attention mechanism, we can determine "where the LMM is looking" and use this information to prompt a segmentation model like SAM to produce pixel-level grounding.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered content-block">
+      <div class="column is-full-width">
+        <h2 class="title is-3">💎 DiffLMM: Diffusion-Based LMM for Enhanced Grounding</h2>
+        <div class="content has-text-centered">
+          <img src="./static/images/visual.png" alt="DiffLMM">
+          <p>
+            We propose <strong>DiffLMM</strong>, a novel LMM architecture that leverages a diffusion-based visual encoder. This design provides stronger localized features compared to standard CLIP encoders, enhancing the model's implicit grounding capabilities without requiring additional training data.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered content-block">
+      <div class="column is-full-width">
+        <h2 class="title is-3">🏆 Competitive Performance Without Grounding Supervision</h2>
+        <div class="content">
+          <table class="table is-bordered">
+            <thead>
+              <tr>
+                <th rowspan="2">Model</th>
+                <th colspan="3">Grounded Conversation Generation</th>
+                <th colspan="3">General VQA</th>
+              </tr>
+              <tr>
+                <th>Mask Recall</th>
+                <th>mIoU</th>
+                <th>METEOR</th>
+                <th>VQAv2</th>
+                <th>MMBench</th>
+                <th>MMStar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>GLaMM</td>
+                <td>40.8</td>
+                <td><strong>65.6</strong></td>
+                <td>15.8</td>
+                <td>24.4</td>
+                <td>36.8</td>
+                <td>12.8</td>
+              </tr>
+              <tr>
+                <td>LLaVA-1.5 + a&s (Ours)</td>
+                <td>43.5</td>
+                <td>59.7</td>
+                <td><strong>18.2</strong></td>
+                <td><strong>78.5</strong></td>
+                <td>64.3</td>
+                <td>30.3</td>
+              </tr>
+              <tr>
+                <td><strong>DiffLMM + a&s (Ours)</strong></td>
+                <td><strong>46.4</strong></td>
+                <td>63.3</td>
+                <td><strong>18.2</strong></td>
+                <td>78.3</td>
+                <td><strong>66.2</strong></td>
+                <td><strong>30.5</strong></td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="has-text-centered">
+            Our approach achieves state-of-the-art performance on grounded conversation generation while maintaining strong performance on general VQA benchmarks, all without any grounding supervision.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">📚BibTeX</h2>
+    <pre><code>@inproceedings{cao2025emergent,
+  title={Emergent Visual Grounding in Large Multimodal Models Without Grounding Supervision},
+  author={Shengcao Cao and Liang-Yan Gui and Yu-Xiong Wang},
+  booktitle={ICCV Findings},
+  year={2025}
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content has-text-centered">
+          <p>
+            This website is adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>,
+            licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
